@@ -229,7 +229,7 @@ public class UserMapperProvider {
         return new SQL() {
             {
                 SELECT("u.*, t.tenant_name," +
-                        "case when u.queue <> '' then u.queue else q.queue_name end as queue_name");
+                        "case when q.queue <> '' then q.queue else q.queue_name end as queue_name");
 
                 FROM(TABLE_NAME + " u,t_escheduler_tenant t,t_escheduler_queue q");
 
